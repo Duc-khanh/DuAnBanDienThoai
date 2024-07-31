@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<HBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.demo3.Login.Login">
+    <VBox alignment="CENTER">
+        <Label style="-fx-font-size: 40px">Đăng Nhập</Label>
+        <Label>Tên đăng nhập</Label>
+        <TextField fx:id="Username" />
+        <Label>Mật khẩu</Label>
+        <PasswordField fx:id="Password" />
+        <HBox alignment="CENTER">
+            <Button fx:id="loginButton" text="Login" />
+            <Button fx:id="signButton" text="Sign in" textOverrun="WORD_ELLIPSIS">
+            <textFill>
+               <RadialGradient centerX="0.3616236303125361" centerY="0.6545741565596042" radius="0.5">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="1.0" green="1.0" blue="1.0" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill></Button>
+        </HBox>
+    </VBox>
+</HBox>

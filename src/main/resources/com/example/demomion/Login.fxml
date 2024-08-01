@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.PointLight?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.CheckBox?>
+<HBox  alignment="CENTER" xmlns="http://javafx.com/javafx/22"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.demo3.Login.Login">
+    <PointLight color="#807d3d" lightOn="true"/>
+    <HBox maxWidth="600.0" style="-fx-background-color: #91D9E4;" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS" spacing="0"/>
+    <HBox prefHeight="600.0" prefWidth="800.0" alignment="CENTER_RIGHT" spacing="0">
+        <VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" styleClass="loginCss"
+              style="-fx-background-color: #e6f4ff;" >
+            <Label style="-fx-font-size: 50px ;">Đăng Nhập</Label>
+            <Label style="-fx-font-size: 20px">Tên đăng nhập</Label>
+            <TextField fx:id="Username" promptText="Nhập tên đăng nhập" prefHeight="25.0" maxWidth="200"/>
+            <Label text="Mật khẩu" style="-fx-font-size: 20px">
+                <padding>
+                    <Insets bottom="5.0" top="5.0"/>
+                </padding>
+            </Label>
+            <PasswordField fx:id="Password" promptText="Nhập password" maxWidth="200"/>
+
+            <TextField fx:id="textField" promptText="Password" maxWidth="200"/>
+
+            <CheckBox fx:id="showPassword" text="ShowPassword">
+                <padding>
+                    <Insets bottom="5.0" top="10.0"/>
+                </padding>
+            </CheckBox>
+            <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                <Button fx:id="loginButton" text="Login" style="-fx-background-color: #de8787;">
+                    <HBox.margin>
+                        <Insets right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="signButton" text="Sign in" style="-fx-background-color: #e1d19b;">
+                    <HBox.margin>
+                        <Insets left="5.0" top="10.0"/>
+                    </HBox.margin>
+                </Button>
+            </HBox>
+        </VBox>
+    </HBox>
+</HBox>

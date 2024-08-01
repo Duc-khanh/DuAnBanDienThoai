@@ -1,0 +1,15 @@
+/* styles.css */
+.loginCss {
+    -fx-background-image: url("https://i.pinimg.com/736x/7b/55/5f/7b555fa028197d615d1a5d4ef413cce3.jpg");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center ;
+}
+/*.signCss{*/
+/*    -fx-background-image: url("");*/
+/*    -fx-font-size: ;*/
+/*}*/
+.root {
+    -fx-padding: 0;
+    -fx-spacing: 0;
+}

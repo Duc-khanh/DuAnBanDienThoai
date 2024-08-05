@@ -17,12 +17,12 @@ public class Sign {
     @FXML
     private Button signButton;
     @FXML
-    private Button homeButton;
+    private Button backButton;
 
     @FXML
     private void initialize() {
         signButton.setOnAction(actionEvent -> handleSign());
-        homeButton.setOnAction(actionEvent -> handleHome());
+        backButton.setOnAction(actionEvent -> handleBack());
     }
 
     private void handleSign() {
@@ -38,9 +38,9 @@ public class Sign {
         }
     }
 
-    private void handleHome() {
+    private void handleBack() {
         try {
-            Main.changeScene("Home.fxml");
+            Main.changeScene("Login.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }

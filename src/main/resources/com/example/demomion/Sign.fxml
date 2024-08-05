@@ -3,19 +3,41 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <HBox alignment="CENTER" xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.demomion.Sign"
-            prefHeight="600.0" prefWidth="800.0" styleClass="">
-    <VBox alignment="CENTER">
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.demomion.Sign"
+      prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #a6deca">
+    <VBox alignment="CENTER" prefWidth="1600" maxHeight="1800">
         <Label style="-fx-font-size: 40px ; -fx-text-fill: blue;">Tạo tài khoản mới</Label>
-        <Label style="-fx-font-size: 20px">Tên đăng nhập</Label>
-        <TextField fx:id="Username" maxWidth="300" promptText="Nhập tên đăng nhập"/>
-        <Label style="-fx-font-size: 20px">Nhập mật khẩu  </Label>
-        <PasswordField fx:id="Password" maxWidth="300" promptText="Nhập password"/>
-        <Label style="-fx-font-size: 20px">Nhập lại mật khẩu</Label>
-        <PasswordField fx:id="ConfirmPassword" maxWidth="300" promptText="Nhập lại password"/>
-        <Button text="Đăng ký" fx:id="signButton" style="-fx-background-color: #de8787;" />
-        <Button text="Home" fx:id="homeButton"/>
+        <Label style="-fx-font-size: 20px">Tên đăng nhập
+            <padding>
+                <Insets bottom="5.0" top="10.0" />
+            </padding></Label>
+        <TextField fx:id="Username" maxWidth="250" promptText="Nhập tên đăng nhập">
+        </TextField>
+        <Label style="-fx-font-size: 20px">Nhập mật khẩu
+            <padding>
+                <Insets bottom="5.0" top="10.0" />
+            </padding>
+        </Label>
+        <PasswordField fx:id="Password" maxWidth="250" promptText="Nhập password"/>
+        <Label style="-fx-font-size: 20px">Nhập lại mật khẩu
+            <padding>
+                <Insets bottom="5.0" top="10.0" />
+            </padding></Label>
+        <PasswordField fx:id="ConfirmPassword" maxWidth="250" promptText="Nhập lại password"/>
+        <HBox alignment="CENTER">
+            <Button text="Đăng ký" fx:id="signButton" style="-fx-background-color: #de8787" >
+                <HBox.margin>
+                    <Insets right="10.0" top="10.0" />
+                </HBox.margin>
+            </Button>
+            <Button text="Go Back" fx:id="backButton" style="-fx-background-color: #e1d19b">
+                <HBox.margin>
+                    <Insets right="10.0" top="10.0" />
+                </HBox.margin>
+            </Button>
+        </HBox>
     </VBox>
 </HBox>

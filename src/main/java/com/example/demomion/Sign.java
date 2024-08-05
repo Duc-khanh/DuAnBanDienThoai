@@ -1,5 +1,6 @@
-package com.demo3.Login;
+package com.example.demomion;
 
+import com.example.demomion.Main;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;

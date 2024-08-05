@@ -20,7 +20,7 @@ public class HelloController {
         String usernameValue = username.getText();
         String passwordValue = password.getText();
 
-        if (usernameValue.equals("khanhdepchai") && passwordValue.equals("123123")) {
+        if (usernameValue.equals("khanh") && passwordValue.equals("123123")) {
             message.setText("Đăng nhập thành công");
         } else {
             message.setText("Đăng nhập thất bại");

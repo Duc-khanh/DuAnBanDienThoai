@@ -25,7 +25,7 @@ public class Sign {
     }
 
     private void handleSign() {
-        if (Username.getText().isEmpty() || Password.getText().isEmpty() || ConfirmPassword.getText().equals("")) {
+        if (Username.getText().isEmpty() || Password.getText().isEmpty() || ConfirmPassword.getText().isEmpty()) {
             System.out.println("Không được để trống");
         } else {
             System.out.println("Đăng ký thành công");

@@ -4,10 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 import java.util.Objects;
 
 
@@ -15,7 +12,7 @@ public class Main extends Application {
     private static Stage primaryStage;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         try {
             Main.primaryStage = primaryStage;
             Parent root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml"), "FXML file not found"));
@@ -28,8 +25,8 @@ public class Main extends Application {
     }
 
     public static void changeScene(String fxml) throws Exception {
-        Parent pane = FXMLLoader.load(Main.class.getResource(fxml));
-        primaryStage.setScene(new Scene(pane));
+        Parent pane = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml),"FXML file not found"));
+        primaryStage.setScene(new Scene(pane,720,480));
         pane.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("logo.css"), "CSS file not found").toExternalForm());
 
 

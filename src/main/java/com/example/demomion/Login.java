@@ -43,13 +43,35 @@ public class Login {
         });
     }
 
+//        // Lấy giá trị của email và password
+//        var email = document.getElementById("email").value;
+//        var password = document.getElementById("password").value;
+//
+//        // Biểu thức chính quy để kiểm tra email
+//        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+//        if (!emailPattern.test(email)) {
+//            alert("Email không hợp lệ");
+//            return false;
+//        }
+//
+//        // Biểu thức chính quy để kiểm tra password
+//        var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+//        if (!passwordPattern.test(password)) {
+//            alert("Password phải có ít nhất 8 ký tự, bao gồm chữ cái và số");
+//            return false;
+//        }
+//
+//        // Nếu tất cả đều hợp lệ
+//        return true;
+
+
     private void handleLogin() {
         if (Username.getText().isEmpty() || Password.getText().isEmpty()) {
             System.out.println("Điền đầy đủ thông tin để đăng nhập");
         } else if (Username.getText().equals("Admin") && Password.getText().equals("1234")) {
             System.out.println("Đăng nhập thành công");
             try {
-                Main.changeScene("Home.fxml");
+                Main.changeScene("HomeTest.fxml");
             } catch (Exception e) {
                 e.printStackTrace();
             }

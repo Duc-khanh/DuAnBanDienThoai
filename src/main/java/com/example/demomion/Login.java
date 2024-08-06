@@ -49,7 +49,7 @@ public class Login {
         } else if (Username.getText().equals("Admin") && Password.getText().equals("1234")) {
             System.out.println("Đăng nhập thành công");
             try {
-                Main.changeScene("Home.fxml");
+                Main.changeScene("HomeTest.fxml");
             } catch (Exception e) {
                 e.printStackTrace();
             }

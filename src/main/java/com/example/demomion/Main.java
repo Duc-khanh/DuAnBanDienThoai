@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -12,13 +13,9 @@ import java.util.Objects;
 
 public class Main extends Application {
     private static Stage primaryStage;
-    private ArrayList<User> users;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        users = new ArrayList<>();
-        users.add(new User("Duc Khanh", "12345"));
-        users.add(new User("Tuan Minh", "23456"));
         try {
             Main.primaryStage = primaryStage;
             Parent root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml"), "FXML file not found"));
@@ -37,6 +34,7 @@ public class Main extends Application {
 
 
     }
+
 
     public static void main(String[] args) {
         launch(args);

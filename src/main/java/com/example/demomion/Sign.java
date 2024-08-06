@@ -1,11 +1,10 @@
 package com.example.demomion;
 
-import com.example.demomion.Main;
 import javafx.fxml.FXML;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
+
 
 public class Sign {
     @FXML
@@ -26,7 +25,7 @@ public class Sign {
     }
 
     private void handleSign() {
-        if (Username.getText().equals("") || Password.getText().equals("") || ConfirmPassword.getText().equals("")) {
+        if (Username.getText().isEmpty() || Password.getText().isEmpty() || ConfirmPassword.getText().equals("")) {
             System.out.println("Không được để trống");
         } else {
             System.out.println("Đăng ký thành công");

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="20.0" prefWidth="600" prefHeight="400" style="-fx-background-color: #00FFFF" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RegisterController">
+    <Label text="Đăng Ký" style="-fx-font-size: 30px;" />
+    <TextField fx:id="usernameField" promptText="Tên Đăng Ký" />
+    <PasswordField fx:id="passwordField" promptText="Mật Khẩu" />
+    <PasswordField fx:id="confirmPasswordField" promptText="Xác Nhận Mật Khẩu" />
+    <Button fx:id="registerButton" text="Đăng Ký" onAction="#handleRegisterButtonAction" />
+</VBox>

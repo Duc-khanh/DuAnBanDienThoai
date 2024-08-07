@@ -16,6 +16,18 @@
             </padding></Label>
         <TextField fx:id="Username" maxWidth="250" promptText="Nhập tên đăng nhập">
         </TextField>
+        <Label style="-fx-font-size: 20px">Số điện thoại
+            <padding>
+                <Insets bottom="5.0" top="10.0" />
+            </padding></Label>
+        <TextField fx:id="Phone" maxWidth="250" promptText="Nhập số điện thoại">
+        </TextField>
+        <Label style="-fx-font-size: 20px">Email
+            <padding>
+                <Insets bottom="5.0" top="10.0" />
+            </padding></Label>
+        <TextField fx:id="Email" maxWidth="250" promptText="Nhập email">
+        </TextField>
         <Label style="-fx-font-size: 20px">Nhập mật khẩu
             <padding>
                 <Insets bottom="5.0" top="10.0" />

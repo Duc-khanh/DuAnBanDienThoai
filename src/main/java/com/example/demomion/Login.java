@@ -75,7 +75,7 @@ public class Login {
             boolean isValid = validateUser(username, password);
             if (isValid) {
                 alert.setHeaderText("Đăng nhập thành công");
-                alert.setContentText("Xin chào " +username);
+                alert.setContentText("Xin chào user" +username);
                 Username.clear();
                 Password.clear();
                 alert.showAndWait();

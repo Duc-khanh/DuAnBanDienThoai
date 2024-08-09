@@ -15,6 +15,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
 //        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 //
 //        // Thiết lập kích thước cửa sổ theo kích thước màn hình

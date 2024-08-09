@@ -1,5 +1,6 @@
 package com.example.demomion;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -43,5 +44,26 @@ public class Home {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void showDashboard(ActionEvent actionEvent) {
+    }
+
+    public void showProducts(ActionEvent actionEvent) {
+    }
+
+    public void showOrders(ActionEvent actionEvent) {
+    }
+
+    public void showEmployees(ActionEvent actionEvent) {
+    }
+
+    public void showInvoices(ActionEvent actionEvent) {
+    }
+
+    public void showInvoiceDetails(ActionEvent actionEvent) {
+    }
+
+    public void LogOut(ActionEvent actionEvent) {
     }
 }

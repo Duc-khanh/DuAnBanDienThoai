@@ -37,7 +37,7 @@ public class Main extends Application {
     }
 
     public static void changeScene(String fxml) throws Exception {
-        Parent pane = FXMLLoader.load(Main.class.getResource(fxml));
+            Parent pane = FXMLLoader.load(Main.class.getResource(fxml));
         primaryStage.setScene(new Scene(pane));
         pane.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("logo.css"), "CSS file not found").toExternalForm());
     }

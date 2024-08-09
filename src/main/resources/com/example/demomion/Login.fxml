@@ -40,12 +40,12 @@
                 </padding>
             </CheckBox>
             <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
-                <Button fx:id="loginButton" style="-fx-background-color: #de8787;" text="Login">
+                <Button fx:id="loginButton" style="-fx-background-color: #de8787; -fx-text-fill: white; " text="Login">
                     <HBox.margin>
                         <Insets right="10.0" top="10.0" />
                     </HBox.margin>
                 </Button>
-                <Button fx:id="signButton" style="-fx-background-color: #e1d19b;" text="Sign in">
+                <Button fx:id="signButton" style="-fx-background-color: #e1d19b;  -fx-text-fill: white; " text="Sign in">
                     <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                     </HBox.margin>

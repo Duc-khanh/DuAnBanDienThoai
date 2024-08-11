@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane style="-fx-background-color: white" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demomion.HomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demomion.HomeController">
 
     <!-- Thanh bên trái -->
     <left>
@@ -38,7 +38,7 @@
                     <Font size="20.0" />
                 </font>
             </Button>
-            <Button onAction="#showEmployees" prefHeight="45.0" prefWidth="175.0" text="Nhân viên">
+            <Button onAction="#showCart" prefHeight="45.0" prefWidth="175.0" text="Giỏ hàng">
                 <font>
                     <Font size="20.0" />
                 </font>
@@ -68,14 +68,14 @@
 
     <!-- Khu vực nội dung chính -->
     <center>
-        <AnchorPane fx:id="contentArea" prefHeight="687.0" prefWidth="376.0">
+        <AnchorPane fx:id="contentArea" prefHeight="582.0" prefWidth="769.0">
             <children>
-                <TextField fx:id="text" layoutX="283.0" prefHeight="94.0" prefWidth="547.0" text="Shop Bán Điện Thoại N5">
+                <TextField fx:id="text" alignment="CENTER" layoutX="3.0" prefHeight="94.0" prefWidth="827.0" text="Shop Bán Điện Thoại N5">
                     <font>
                         <Font name="System Bold" size="40.0" />
                     </font>
                 </TextField>
-                <ImageView fitHeight="500.0" fitWidth="650.0" layoutX="51.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="253.66666666666663">
+                <ImageView fitHeight="500.0" fitWidth="588.0" layoutX="160.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="181.0">
                     <image>
                         <Image url="@../../../Image/background.jpg" />
                     </image>

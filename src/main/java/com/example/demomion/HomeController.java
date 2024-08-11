@@ -24,7 +24,17 @@ public class HomeController {
     // Phương thức xử lý sự kiện
     @FXML
     private void showDashboard() {
-        // Mã để hiển thị giao diện bảng điều khiển
+        try {
+            // Tải nội dung của ProductList.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+            Parent productListView = loader.load();
+
+            // Thay thế nội dung hiện tại của contentArea bằng ProductList.fxml
+            contentArea.getChildren().clear();
+            contentArea.getChildren().add(productListView);
+        } catch (IOException e) {
+            showErrorAlert("Error loading Dashboard", e.getMessage());
+        }
         System.out.println("Đang hiển thị Bảng điều khiển");
     }
 
@@ -49,7 +59,7 @@ public class HomeController {
     }
 
     @FXML
-    private void showEmployees() {
+    private void showCart() {
         // Mã để hiển thị giao diện nhân viên
         System.out.println("Đang hiển thị Nhân viên");
     }

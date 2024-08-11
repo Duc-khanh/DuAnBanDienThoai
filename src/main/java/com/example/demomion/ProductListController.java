@@ -68,6 +68,7 @@ public class ProductListController {
         actionColumn.setCellFactory(col -> new TableCell<Product, Void>() {
             private final Button updateButton = new Button("Update");
             private final Button deleteButton = new Button("Delete");
+            private final Button buyButton = new Button("Buy");
 
             {
                 updateButton.setOnAction(e -> {
@@ -77,12 +78,18 @@ public class ProductListController {
 
                 deleteButton.setOnAction(e -> {
                     Product product = getTableView().getItems().get(getIndex());
-                    if (showConfirmation("Are you sure you want to delete this product?")) {
+                    if (showConfirmation("Bạn muốn xóa sản phẩm này không?")) {
                         handleDelete(product);
                     }
                 });
+                buyButton.setOnAction(e -> {
+                    Product product = getTableView().getItems().get(getIndex());
+                    if(showConfirmation("Bạn muốn thêm sản phẩm vào giỏ hàng không?")){
+                        handleBuy(product);
+                    }
+                });
 
-                HBox buttons = new HBox(10, updateButton, deleteButton);
+                HBox buttons = new HBox(10, updateButton, deleteButton, buyButton);
                 buttons.setPadding(new Insets(5));
                 setGraphic(buttons);
             }
@@ -97,8 +104,39 @@ public class ProductListController {
 
         List<Product> loadedProducts = loadProductsFromFile();
         products.addAll(loadedProducts);
+
+        List<Product> buyProducts = buyProductsFromFile();
+        products.addAll(buyProducts);
     }
 
+//    Mua sản phẩm
+    @FXML
+    private void handleBuy(Product product) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Buy.fxml"));
+            BorderPane root = loader.load();
+
+            AddProductController controller = loader.getController();
+            controller.setStage(stage);
+            controller.setProducts(products);
+
+            Stage buyProductStage = new Stage();
+            buyProductStage.setScene(new Scene(root));
+            buyProductStage.setTitle("Buy Product");
+            buyProductStage.initOwner(stage);
+            buyProductStage.initModality(Modality.WINDOW_MODAL);
+
+            buyProductStage.setOnHiding(e -> {
+                productTable.refresh();
+                buyProductsToFile();
+
+            });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+// Thêm sản phẩm
     @FXML
     private void handleAddProduct() {
         try {
@@ -126,7 +164,7 @@ public class ProductListController {
             showError("Error loading add product window: " + e.getMessage());
         }
     }
-
+// Cập nhật sản phẩm
     private void handleEdit(Product product) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Update_Product.fxml"));
@@ -154,7 +192,7 @@ public class ProductListController {
             showError("Error loading edit product window: " + e.getMessage());
         }
     }
-
+// Xóa sản phẩm
     private void handleDelete(Product product) {
         products.remove(product);
     }
@@ -196,8 +234,34 @@ public class ProductListController {
         return products;
     }
 
+    private List<Product> buyProductsFromFile() {
+        List<Product> products = new ArrayList<>();
+        File file = new File("cart.txt");
+        if (file.exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    Product product = Product.fromString(line);
+                    products.add(product);
+                }
+            } catch (IOException e) {
+                showError("Failed to load products: " + e.getMessage());
+            }
+        }
+        return products;
+    }
+
     private void saveProductsToFile() {
         try (FileWriter writer = new FileWriter("project.txt", false)) {
+            for (Product product : products) {
+                writer.write(product.toString() + System.lineSeparator());
+            }
+        } catch (IOException e) {
+            showError("Failed to save products: " + e.getMessage());
+        }
+    }
+    private void buyProductsToFile() {
+        try (FileWriter writer = new FileWriter("cart.txt", false)) {
             for (Product product : products) {
                 writer.write(product.toString() + System.lineSeparator());
             }

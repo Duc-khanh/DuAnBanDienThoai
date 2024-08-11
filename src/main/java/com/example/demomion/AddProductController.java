@@ -63,15 +63,16 @@ public class AddProductController {
             Image image = imageView.getImage();
 
             if (name.isEmpty() || price <= 0 || quantity <= 0 || image == null) {
-                throw new IllegalArgumentException("Please fill out all fields correctly.");
+                throw new IllegalArgumentException("Nhập chính xác giá trị.");
             }
             if (products == null) {
-                throw new IllegalStateException("Product list is not initialized.");
+                throw new IllegalStateException("Lỗi khởi tạo sản phẩm.");
             }
             products.add(new Product(name, price, quantity, image));
             saveProductsToFile();
 
-            showAlert("Product added successfully!");
+            showAlert("Đã thêm sản phẩm");
+            Main.changeScene("MenuProduct");
 
         } catch (NumberFormatException e) {
             showError(e.getMessage());
@@ -79,6 +80,8 @@ public class AddProductController {
             showError(e.getMessage());
         } catch (IllegalStateException e) {
             showError(e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -116,7 +119,7 @@ public class AddProductController {
             Image image = imageView.getImage();
 
             if (name.isEmpty() || price <= 0 || quantity <= 0 || image == null) {
-                throw new IllegalArgumentException("Please fill out all fields correctly.");
+                throw new IllegalArgumentException("Điền đúng giá trị .");
             }
             if (products == null) {
                 throw new IllegalStateException("Product list is not initialized.");
@@ -131,7 +134,7 @@ public class AddProductController {
                 currentProduct.setImage(image);
             }
             saveProductsToFile();
-            showAlert("Product saved successfully!");
+            showAlert("Đã cập nhật thành công!");
 
         } catch (NumberFormatException e) {
             showError(e.getMessage());

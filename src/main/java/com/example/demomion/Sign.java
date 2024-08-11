@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class Sign extends Login {
@@ -23,6 +24,8 @@ public class Sign extends Login {
     private Button signButton;
     @FXML
     private Button backButton;
+    @FXML
+    private int count = 5;
 
     private static final String EMAIL_REGEX = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
     private static final String PHONE_REGEX = "^\\d{10}$";
@@ -36,15 +39,18 @@ public class Sign extends Login {
     }
 
     private void handleSign() {
-        String fullName = Username.getText();
+        String username = Username.getText();
         String email = Email.getText();
         String phoneNumber = PhoneNumber.getText();
         String password = Password.getText();
         String confirmPassword = ConfirmPassword.getText();
-
-        if (fullName.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || phoneNumber.isEmpty()) {
+        String id = String.valueOf(count);
+        if(findUserBoolean(username)){
+            showAlert("Username is already in use!");
+        }
+        else if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || phoneNumber.isEmpty()) {
             showAlert("Không được để chống các mục");
-        } else if (fullName.length() < 8) {
+        } else if (username.length() < 8) {
             showAlert("Tên không được dưới 8 kí tự");
         } else if (!isValidEmail(email)) {
             showAlert("Địa chỉ email không hợp lệ.");
@@ -56,14 +62,15 @@ public class Sign extends Login {
             showAlert("Mật Khẩu không khớp");
         } else {
             showAlert("Đăng kí thành công");
-            Login login = new Sign();
-            login.getUsers().add(new String[]{fullName, password, email, phoneNumber});
-
-            Username.clear();
-            Password.clear();
-            Email.clear();
-            PhoneNumber.clear();
-            ConfirmPassword.clear();
+            User newuser = new User(username, password,email, phoneNumber, id);
+            users = Arrays.copyOf(users, users.length + 1);
+            users[users.length - 1] = newuser;
+            showUser();
+            try{
+                Main.changeScene("Login.fxml");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

@@ -9,27 +9,43 @@
     <HBox alignment="CENTER_RIGHT" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #a6deca">
         <VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0">
             <Label style="-fx-font-size: 50px; -fx-text-fill: blue;">Đăng Nhập</Label>
-            <Label style="-fx-font-size: 20px">Tên đăng nhập</Label>
-            <TextField fx:id="Username" maxWidth="200" prefHeight="25.0" promptText="Nhập tên đăng nhập" />
-            <Label style="-fx-font-size: 20px" text="Mật khẩu">
+            <Label style="-fx-font-size: 25px">Tên đăng nhập</Label>
+            <TextField fx:id="Username" maxWidth="250" prefHeight="20.0" promptText="Nhập tên đăng nhập"  style="-fx-font-size: 15px;
+                      -fx-padding: 10px;
+                      -fx-background-radius: 10px;
+                      -fx-border-radius: 10px;
+                      -fx-border-color: lightgray;
+                      -fx-border-width: 1px;" />
+            <Label style="-fx-font-size: 25px" text="Mật khẩu">
                 <padding>
                     <Insets bottom="5.0" top="5.0" />
                 </padding>
             </Label>
-            <PasswordField fx:id="Password" maxWidth="200" promptText="Nhập password" />
-            <TextField fx:id="textField" maxWidth="200" promptText="Password" />
+            <PasswordField fx:id="Password" maxWidth="250" prefHeight="20.0" promptText="Nhập password" style="-fx-font-size: 15px;
+                      -fx-padding: 10px;
+                      -fx-background-radius: 10px;
+                      -fx-border-radius: 10px;
+                      -fx-border-color: lightgray;
+                      -fx-border-width: 1px;" />
+
+            <TextField fx:id="textField" maxWidth="250" promptText="Nhập password" style="-fx-font-size: 15px;
+                      -fx-padding: 10px;
+                      -fx-background-radius: 10px;
+                      -fx-border-radius: 10px;
+                      -fx-border-color: lightgray;
+                      -fx-border-width: 1px;"  />
             <CheckBox fx:id="showPassword" text="ShowPassword">
                 <padding>
                     <Insets bottom="5.0" top="10.0" />
                 </padding>
             </CheckBox>
             <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
-                <Button fx:id="loginButton" style="-fx-background-color: #de8787;" text="Login">
+                <Button fx:id="loginButton" style="-fx-background-color: #de8787; -fx-text-fill: white; " text="Login">
                     <HBox.margin>
                         <Insets right="10.0" top="10.0" />
                     </HBox.margin>
                 </Button>
-                <Button fx:id="signButton" style="-fx-background-color: #e1d19b;" text="Sign in">
+                <Button fx:id="signButton" style="-fx-background-color: #e1d19b;  -fx-text-fill: white; " text="Sign in">
                     <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                     </HBox.margin>

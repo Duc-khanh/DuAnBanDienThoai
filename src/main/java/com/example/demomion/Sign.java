@@ -5,18 +5,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.util.regex.Pattern;
 
 public class Sign extends Login {
     @FXML
     private TextField Username;
     @FXML
-    private TextField Phone;
-    @FXML
     private TextField Email;
+    @FXML
+    private TextField PhoneNumber;
     @FXML
     private PasswordField Password;
     @FXML
@@ -32,69 +30,50 @@ public class Sign extends Login {
     @FXML
     private void initialize() {
         signButton.setOnAction(actionEvent -> handleSign());
-        backButton.setOnAction(actionEvent -> handleBack());
+        backButton.setOnAction(actionEvent -> handleLogin());
+
+
     }
 
     private void handleSign() {
-        String username = Username.getText().trim();
-        String phone = Phone.getText().trim();
-        String email = Email.getText().trim();
-        String password = Password.getText().trim();
-        String confirmPassword = ConfirmPassword.getText().trim();
+        String fullName = Username.getText();
+        String email = Email.getText();
+        String phoneNumber = PhoneNumber.getText();
+        String password = Password.getText();
+        String confirmPassword = ConfirmPassword.getText();
 
-        if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || phone.isEmpty()) {
-            showAlert("Không được để trống");
-        } else if (username.length() < 8) {
+        if (fullName.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || phoneNumber.isEmpty()) {
+            showAlert("Không được để chống các mục");
+        } else if (fullName.length() < 8) {
             showAlert("Tên không được dưới 8 kí tự");
-        } else if (!isValidPhone(phone)) {
-            showAlert("Số điện thoại không hợp lệ. Số điện thoại phải gồm 10 chữ số.");
         } else if (!isValidEmail(email)) {
             showAlert("Địa chỉ email không hợp lệ.");
+        } else if (!isValidPhoneNumber(phoneNumber)) {
+            showAlert("Số điện thoại không hợp lệ. Số điện thoại phải gồm 10 chữ số.");
         } else if (password.length() < 8) {
             showAlert("Password không được dưới 8 kí tự");
         } else if (!password.equals(confirmPassword)) {
             showAlert("Mật Khẩu không khớp");
         } else {
-            if (registerUser(username, password, phone, email)) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText("Đăng ký thành công");
-                alert.setContentText("Bây giờ bạn có thể đăng nhập.");
-                alert.showAndWait();
+            showAlert("Đăng kí thành công");
+            Login login = new Sign();
+            login.getUsers().add(new String[]{fullName, password, email, phoneNumber});
 
-                try {
-                    Main.changeScene("Login.fxml");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                Username.clear();
-                Password.clear();
-                Email.clear();
-                Phone.clear();
-                ConfirmPassword.clear();
-            } else {
-                showAlert("Tên người dùng đã tồn tại.");
-            }
+            Username.clear();
+            Password.clear();
+            Email.clear();
+            PhoneNumber.clear();
+            ConfirmPassword.clear();
         }
     }
 
-    private boolean registerUser(String username, String password, String phone, String email) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Users.txt", true))) {
-            writer.write(username + "," + password + "," + phone + "," + email);
-            writer.newLine();
-            return true;
-        } catch (IOException e) {
+    @FXML
+    private void handleLogin() {
+        try {
+            Main.changeScene("Login.fxml");
+        } catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
-    }
-
-    private boolean isValidPhone(String phone) {
-        return Pattern.matches(PHONE_REGEX, phone);
-    }
-
-    private boolean isValidEmail(String email) {
-        return Pattern.matches(EMAIL_REGEX, email);
     }
 
     private void showAlert(String message) {
@@ -103,11 +82,11 @@ public class Sign extends Login {
         alert.show();
     }
 
-    private void handleBack() {
-        try {
-            Main.changeScene("Login.fxml");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private boolean isValidEmail(String email) {
+        return Pattern.matches(EMAIL_REGEX, email);
+    }
+
+    private boolean isValidPhoneNumber(String phoneNumber) {
+        return Pattern.matches(PHONE_REGEX, phoneNumber);
     }
 }

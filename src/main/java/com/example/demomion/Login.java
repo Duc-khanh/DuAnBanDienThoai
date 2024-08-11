@@ -1,11 +1,9 @@
-
 package com.example.demomion;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Login {
@@ -22,8 +20,14 @@ public class Login {
     @FXML
     private TextField textField;
 
+    private static List<String[]> user = new ArrayList<>();
+
+    public Login() {
+    }
+
     @FXML
     private void initialize() {
+        listUser();
         loginButton.setOnAction(actionEvent -> handleLogin());
         signButton.setOnAction(actionEvent -> handleSign());
 
@@ -58,53 +62,49 @@ public class Login {
                 Password.setText(newValue);
             }
         });
-        Main.showUsersFile();
+    }
+
+    public void listUser() {
+        user.add(new String[]{"PhamThom", "123456789", "vykid9@gmail.com", "0867536601", "admin"});
+        user.add(new String[]{"NguyenKhanh", "987654321", "Khanh01@gmail.com", "0123456789", "user"});
+        user.add(new String[]{"TuanMinh", "66668888", "Minh02@gmail.com", "0987654321", "user"});
+        user.add(new String[]{"NgocThom", "88886666", "NgocThom03@gmail.com", "024683579", "user"});
+        user.add(new String[]{"DucKhanh01", "22224444", "Khanh02@gmail.com", "013572468", "user"});
     }
 
     private void handleLogin() {
-        String username = this.Username.getText().trim();
-        String password = this.Password.getText().trim();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        String username = Username.getText();
+        String password = Password.getText();
+
         if (username.isEmpty() || password.isEmpty()) {
-            showAlert("Tên đăng nhập và mật khẩu không được để trống");
+            showAlert("Tên đăng nhập và mật khẩu ko đc để trống");
         } else if (username.length() < 8) {
             showAlert("Tên đăng nhập phải trên 8 kí tự");
         } else if (password.length() < 8) {
             showAlert("Mật khẩu phải trên 8 kí tự");
         } else {
-            boolean isValid = validateUser(username, password);
+            boolean isValid = false;
+            for (String[] newUser : user) {
+                if (newUser[0].equals(username) && newUser[1].equals(password)) {
+                    isValid = true;
+                    break;
+                }
+            }
             if (isValid) {
-                alert.setHeaderText("Đăng nhập thành công");
-                alert.setContentText("Xin chào " +username);
+                showAlert("Đăng nhập thành công");
                 Username.clear();
                 Password.clear();
-                alert.showAndWait();
+                showUserList();
                 try {
-                    Main.changeScene("HomeTest.fxml");
+                    Main.changeScene("Home.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else {
-                alert.setHeaderText("Mời đăng nhập lại");
-                alert.setContentText("Sai tên đăng nhập hoặc mật khẩu");
+                showAlert("sai mật khẩu");
                 Password.clear();
             }
         }
-    }
-
-    private boolean validateUser(String username, String password) {
-        try {
-            List<String> lines = Files.readAllLines(Paths.get("Users.txt"));
-            for (String line : lines) {
-                String[] credentials = line.split(",");
-                if (credentials.length == 4 && credentials[0].equals(username) && credentials[1].equals(password)) {
-                    return true;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
     private void handleSign() {
@@ -115,10 +115,24 @@ public class Login {
         }
     }
 
-    private void showAlert(String message) {
+    private void showAlert(String mesage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText(message);
+        alert.setContentText(mesage);
         alert.show();
     }
 
+    protected List<String[]> getUsers() {
+        return user;
+    }
+
+    protected void showUserList() {
+        for (String[] user : user) {
+            if (user[3].equals("admin")) {
+                System.out.println("Username: \"" + user[0] + ",\t" + " Password: " + user[1] + "\t," + "Email: " + user[2] + ",\t\t" + user[3] + ",\t\t" + " Role: " + user[4]);
+            } else {
+                System.out.println("Username: \"" + user[0] + ",\t" + " Password: " + user[1] + "\t," + "Email: " + user[2] + ",\t\t" + "SĐT : " + user[3] + ",\t\t" + " Role: " + user[4]);
+            }
+        }
+    }
 }
+

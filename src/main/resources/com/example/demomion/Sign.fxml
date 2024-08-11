@@ -20,7 +20,7 @@
             <padding>
                 <Insets bottom="5.0" top="10.0" />
             </padding></Label>
-        <TextField fx:id="Phone" maxWidth="250" promptText="Nhập số điện thoại">
+        <TextField fx:id="PhoneNumber" maxWidth="250" promptText="Nhập số điện thoại">
         </TextField>
         <Label style="-fx-font-size: 20px">Email
             <padding>

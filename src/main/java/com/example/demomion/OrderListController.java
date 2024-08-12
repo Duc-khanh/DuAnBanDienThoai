@@ -21,7 +21,7 @@ public class OrderListController {
             @Override
             protected void updateItem(Order order, boolean empty) {
                 super.updateItem(order, empty);
-                if (empty || order == null) {
+                if (empty || order == null) { //
                     setText(null);
                     setGraphic(null);
                 } else {

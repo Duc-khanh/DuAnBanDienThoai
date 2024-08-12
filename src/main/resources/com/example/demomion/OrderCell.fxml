@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demomion.OrderCellController">
+    <TableView fx:id="orderTable" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="600.0">
+        <columns>
+            <TableColumn fx:id="productInfo" prefWidth="213.33326721191406" text="Thông tin sản phẩm" />
+            <TableColumn fx:id="quantity" minWidth="0.0" prefWidth="108.0" text="Số lượng" />
+            <TableColumn fx:id="totalPrice" minWidth="0.0" prefWidth="108.0" text="Tổng giá" />
+            <TableColumn fx:id="actionColumnCell" prefWidth="218.66668701171875" text="Action" />
+        </columns>
+    </TableView>
+</AnchorPane>

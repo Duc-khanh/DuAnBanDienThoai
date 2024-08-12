@@ -67,11 +67,11 @@ public class HomeController {
     private void showInvoices() {
         // Mã để hiển thị giao diện hóa đơn
         try {
-            // Tải nội dung của Order.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Order.fxml"));
+            // Tải nội dung của OrderList.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("OrderList.fxml"));
             Parent orderView = loader.load();
 
-            // Thay thế nội dung hiện tại của contentArea bằng Order.fxml
+            // Thay thế nội dung hiện tại của contentArea bằng OrderList.fxml
             contentArea.getChildren().clear();
             contentArea.getChildren().add(orderView);
         } catch (IOException e) {

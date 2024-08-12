@@ -1,68 +1,39 @@
 package com.example.demomion;
 
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.beans.property.DoubleProperty;
 
 public class Order {
-    private final StringProperty orderId;
-    private final StringProperty customerName;
-    private final StringProperty orderDate;
-    private final DoubleProperty totalAmount;
+    private final SimpleStringProperty productInfo;
+    private final SimpleIntegerProperty quantity;
+    private final SimpleDoubleProperty totalPrice;
+    private String status;
 
-    public Order(String orderId, String customerName, String orderDate, double totalAmount) {
-        this.orderId = new SimpleStringProperty(orderId);
-        this.customerName = new SimpleStringProperty(customerName);
-        this.orderDate = new SimpleStringProperty(orderDate);
-        this.totalAmount = new SimpleDoubleProperty(totalAmount);
+    public Order(String productInfo, int quantity, double totalPrice, String chờThanhToán) {
+        this.productInfo = new SimpleStringProperty(productInfo);
+        this.quantity = new SimpleIntegerProperty(quantity);
+        this.totalPrice = new SimpleDoubleProperty(totalPrice);
+        this.status = "Chờ thanh toán";
     }
 
-    public String getOrderId() {
-        return orderId.get();
+    public String getProductInfo() {
+        return productInfo.get();
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId.set(orderId);
+    public int getQuantity() {
+        return quantity.get();
     }
 
-    public StringProperty orderIdProperty() {
-        return orderId;
+    public double getTotalPrice() {
+        return totalPrice.get();
     }
 
-    public String getCustomerName() {
-        return customerName.get();
+    public String getStatus() {
+        return status;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName.set(customerName);
-    }
-
-    public StringProperty customerNameProperty() {
-        return customerName;
-    }
-
-    public String getOrderDate() {
-        return orderDate.get();
-    }
-
-    public void setOrderDate(String orderDate) {
-        this.orderDate.set(orderDate);
-    }
-
-    public StringProperty orderDateProperty() {
-        return orderDate;
-    }
-
-    public double getTotalAmount() {
-        return totalAmount.get();
-    }
-
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount.set(totalAmount);
-    }
-
-    public DoubleProperty totalAmountProperty() {
-        return totalAmount;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

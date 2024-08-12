@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <HBox alignment="CENTER" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demomion.Login">
-    <HBox alignment="CENTER_LEFT" maxWidth="600.0" HBox.hgrow="ALWAYS" />
-    <HBox alignment="CENTER_RIGHT" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #a6deca">
+    <HBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" >
         <VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0">
             <Label style="-fx-font-size: 50px; -fx-text-fill: blue;">Đăng Nhập</Label>
             <Label style="-fx-font-size: 25px">Tên đăng nhập</Label>

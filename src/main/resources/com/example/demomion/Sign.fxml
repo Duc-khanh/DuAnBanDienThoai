@@ -7,38 +7,63 @@
 <HBox alignment="CENTER" xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.demomion.Sign"
-      prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #a6deca">
-    <VBox alignment="CENTER" prefWidth="1600" maxHeight="1800">
-        <Label style="-fx-font-size: 40px ; -fx-text-fill: blue;">Tạo tài khoản mới</Label>
+     >
+    <VBox alignment="CENTER" prefWidth="1000" maxHeight="1000">
+        <Label style="-fx-font-size: 40px ; -fx-text-fill: blue; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0.0, 2, 2);">Tạo tài khoản mới</Label>
         <Label style="-fx-font-size: 20px">Tên đăng nhập
             <padding>
                 <Insets bottom="5.0" top="10.0" />
             </padding></Label>
-        <TextField fx:id="Username" maxWidth="250" promptText="Nhập tên đăng nhập">
+        <TextField fx:id="Username" maxWidth="250" promptText="Nhập tên đăng nhập"  style="-fx-font-size: 15px;
+                      -fx-padding: 5px;
+                      -fx-background-radius: 10px;
+                      -fx-border-radius: 10px;
+                      -fx-border-color: lightgray;
+                      -fx-border-width: 1px;" >
         </TextField>
         <Label style="-fx-font-size: 20px">Số điện thoại
             <padding>
                 <Insets bottom="5.0" top="10.0" />
             </padding></Label>
-        <TextField fx:id="PhoneNumber" maxWidth="250" promptText="Nhập số điện thoại">
+        <TextField fx:id="PhoneNumber" maxWidth="250" promptText="Nhập số điện thoại"  style="-fx-font-size: 15px;
+                      -fx-padding: 5px;
+                      -fx-background-radius: 10px;
+                      -fx-border-radius: 10px;
+                      -fx-border-color: lightgray;
+                      -fx-border-width: 1px;" >
         </TextField>
         <Label style="-fx-font-size: 20px">Email
             <padding>
                 <Insets bottom="5.0" top="10.0" />
             </padding></Label>
-        <TextField fx:id="Email" maxWidth="250" promptText="Nhập email">
+        <TextField fx:id="Email" maxWidth="250" promptText="Nhập email"  style="-fx-font-size: 15px;
+                      -fx-padding: 5px;
+                      -fx-background-radius: 10px;
+                      -fx-border-radius: 10px;
+                      -fx-border-color: lightgray;
+                      -fx-border-width: 1px;" >
         </TextField>
         <Label style="-fx-font-size: 20px">Nhập mật khẩu
             <padding>
                 <Insets bottom="5.0" top="10.0" />
             </padding>
         </Label>
-        <PasswordField fx:id="Password" maxWidth="250" promptText="Nhập password"/>
+        <PasswordField fx:id="Password" maxWidth="250" promptText="Nhập password"  style="-fx-font-size: 15px;
+                      -fx-padding: 5px;
+                      -fx-background-radius: 10px;
+                      -fx-border-radius: 10px;
+                      -fx-border-color: lightgray;
+                      -fx-border-width: 1px;" />
         <Label style="-fx-font-size: 20px">Nhập lại mật khẩu
             <padding>
                 <Insets bottom="5.0" top="10.0" />
             </padding></Label>
-        <PasswordField fx:id="ConfirmPassword" maxWidth="250" promptText="Nhập lại password"/>
+        <PasswordField fx:id="ConfirmPassword" maxWidth="250" promptText="Nhập lại password"  style="-fx-font-size: 15px;
+                      -fx-padding: 5px;
+                      -fx-background-radius: 10px;
+                      -fx-border-radius: 10px;
+                      -fx-border-color: lightgray;
+                      -fx-border-width: 1px;" />
         <HBox alignment="CENTER">
             <Button text="Đăng ký" fx:id="signButton" style="-fx-background-color: #de8787" >
                 <HBox.margin>

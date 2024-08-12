@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class OrderListController {
     @FXML
@@ -25,8 +27,7 @@ public class OrderListController {
 
     @FXML
     public void initialize() {
-        OrderDatabase orderDatabase = new OrderDatabase();
-        orders.addAll(orderDatabase.getOrders());
+        loadOrdersFromDatabase(); // Tải dữ liệu từ OrderDatabase
 
         productColumn.setCellValueFactory(new PropertyValueFactory<>("product"));
         quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
@@ -48,6 +49,7 @@ public class OrderListController {
                                 orderTable.refresh();
                                 payButton.setVisible(false);
                                 cancelButton.setVisible(false);
+                                saveOrdersToFile(); // Lưu thông tin hóa đơn sau khi chỉnh sửa
                             }
                         });
                     }
@@ -61,6 +63,7 @@ public class OrderListController {
                             if (response == ButtonType.OK) {
                                 orders.remove(order); // Xóa đơn hàng khỏi danh sách
                                 orderTable.refresh();
+                                saveOrdersToFile(); // Lưu thông tin hóa đơn sau khi chỉnh sửa
                             }
                         });
                     }
@@ -92,9 +95,33 @@ public class OrderListController {
 
     public void addOrder(Order order) {
         orders.add(order);
+        saveOrdersToFile(); // Lưu thông tin hóa đơn sau khi thêm mới
     }
 
     public ObservableList<Order> getAllOrders() {
         return orders;
+    }
+
+    private void saveOrdersToFile() {
+        try (FileWriter writer = new FileWriter("order.txt", false)) {
+            for (Order order : orders) {
+                writer.write(order.toString() + System.lineSeparator());
+            }
+        } catch (IOException e) {
+            showError("Failed to save orders: " + e.getMessage());
+        }
+    }
+
+    private void loadOrdersFromDatabase() {
+        OrderDatabase orderDatabase = new OrderDatabase();
+        orders.addAll(orderDatabase.getOrders());
+    }
+
+    private void showError(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

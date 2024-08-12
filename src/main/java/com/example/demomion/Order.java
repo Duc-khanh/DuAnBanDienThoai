@@ -55,4 +55,13 @@ public class Order {
     public void setStatus(String status) {
         this.status = status;
     }
+    public String toString() {
+        return "Order{" +
+                "customer=" + customer +
+                ", products=" + product +
+                ", quantity=" + quantity +
+                ", totalPrice=" + totalPrice +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }

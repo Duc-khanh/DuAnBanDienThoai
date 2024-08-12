@@ -1,0 +1,2 @@
+Order{customer=Pham Van B, products=Samsung Galaxy M55 5G 256GB, quantity=1, totalPrice=2500.0, status='Đã thanh toán'}
+Order{customer=Pham Van C, products=Samsung Galaxy S24 Plus 5G 256GB, quantity=3, totalPrice=3000.0, status='Chờ thanh toán'}

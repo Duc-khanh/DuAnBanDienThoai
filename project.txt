@@ -1,4 +1,4 @@
-Samsung Galaxy M55 5G 256GB,12000.0,121,file:/A:/Unit3/DuAnBanDienThoai/src/main/resources/Image/In4SP/Samsung%20Galaxy%20M55%205G%20256GB/2024_6_24_638548561719683879_samsung-galaxy-m55-den.jpg
+Samsung Galaxy M55 5G 256GB,12000.0,120,file:/A:/Unit3/DuAnBanDienThoai/src/main/resources/Image/In4SP/Samsung%20Galaxy%20M55%205G%20256GB/2024_6_24_638548561719683879_samsung-galaxy-m55-den.jpg
 Samsung Galaxy S24 Plus 5G 256GB,16000.0,122,file:/A:/Unit3/DuAnBanDienThoai/src/main/resources/Image/In4SP/Samsung%20Galaxy%20S24%20Plus%205G%20256GB/2024_1_17_638410791179108546_samsung-galaxy-s24-plus-vang-1-png.png
 Xiaomi POCO X6 5G 12GB-256GB,24000.0,123,file:/A:/Unit3/DuAnBanDienThoai/src/main/resources/Image/In4SP/Xiaomi%20POCO%20X6%205G%2012GB-256GB/00909923_poco_x6_blue_5e570f66db.png
 Samsung Galaxy Z Fold6 5G 256GB,20000.0,123,file:/A:/Unit3/DuAnBanDienThoai/src/main/resources/Image/In4SP/Samsung%20Galaxy%20Z%20Fold6%205G%20256GB/samsung_galaxy_z_fold6_gray_2_ec3e1cf820.png

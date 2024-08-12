@@ -72,6 +72,7 @@ public class AddProductController {
             saveProductsToFile();
 
             showAlert("Đã thêm sản phẩm");
+            stage.close();
             Main.changeScene("MenuProduct");
 
         } catch (NumberFormatException e) {
@@ -135,7 +136,7 @@ public class AddProductController {
             }
             saveProductsToFile();
             showAlert("Đã cập nhật thành công!");
-            Main.changeScene("MenuProduct.fxml");
+//            dffgdgf
 
         } catch (NumberFormatException e) {
             showError(e.getMessage());

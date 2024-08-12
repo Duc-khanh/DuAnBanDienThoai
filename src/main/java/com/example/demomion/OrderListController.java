@@ -46,6 +46,8 @@ public class OrderListController {
                             if (response == ButtonType.OK) {
                                 order.setStatus("Đã thanh toán");
                                 orderTable.refresh();
+                                payButton.setVisible(false);
+                                cancelButton.setVisible(false);
                             }
                         });
                     }
@@ -57,7 +59,7 @@ public class OrderListController {
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bạn có chắc chắn muốn chuyển trạng thái đơn hàng thành Hủy đơn?", ButtonType.OK, ButtonType.CANCEL);
                         alert.showAndWait().ifPresent(response -> {
                             if (response == ButtonType.OK) {
-                                order.setStatus("Hủy đơn");
+                                orders.remove(order); // Xóa đơn hàng khỏi danh sách
                                 orderTable.refresh();
                             }
                         });
@@ -71,6 +73,14 @@ public class OrderListController {
                 if (empty) {
                     setGraphic(null);
                 } else {
+                    Order order = getTableView().getItems().get(getIndex());
+                    if (order.getStatus().equals("Chờ thanh toán")) {
+                        payButton.setVisible(true);
+                        cancelButton.setVisible(true);
+                    } else {
+                        payButton.setVisible(false);
+                        cancelButton.setVisible(false);
+                    }
                     HBox hBox = new HBox(payButton, cancelButton);
                     setGraphic(hBox);
                 }

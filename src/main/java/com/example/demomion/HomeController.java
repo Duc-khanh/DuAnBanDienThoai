@@ -37,7 +37,7 @@ public class HomeController {
         }
         System.out.println("Đang hiển thị Bảng điều khiển");
     }
-
+//Update
     @FXML
     private void showProducts() {
         try {

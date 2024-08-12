@@ -135,12 +135,13 @@ public class AddProductController {
             }
             saveProductsToFile();
             showAlert("Đã cập nhật thành công!");
+            Main.changeScene("MenuProduct.fxml");
 
         } catch (NumberFormatException e) {
             showError(e.getMessage());
         } catch (IllegalArgumentException e) {
             showError(e.getMessage());
-        } catch (IllegalStateException e) {
+        } catch (Exception e) {
             showError(e.getMessage());
         }
     }

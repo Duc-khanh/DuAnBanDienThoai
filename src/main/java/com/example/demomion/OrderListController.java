@@ -1,45 +1,90 @@
 package com.example.demomion;
 
-import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ListCell;
-import javafx.scene.Parent;
-
-
-import java.io.IOException;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 public class OrderListController {
     @FXML
-    private ListView<Order> orderListView;
+    private TableView<Order> orderTable;
+    @FXML
+    private TableColumn<Order, String> productColumn;
+    @FXML
+    private TableColumn<Order, Integer> quantityColumn;
+    @FXML
+    private TableColumn<Order, Double> totalPriceColumn;
+    @FXML
+    private TableColumn<Order, String> statusColumn;
+    @FXML
+    private TableColumn<Order, Void> actionColumn;
 
+    private ObservableList<Order> orders = FXCollections.observableArrayList();
+
+    @FXML
     public void initialize() {
-        OrderDatabase db = new OrderDatabase();
-        orderListView.getItems().addAll(db.getOrders());
-        orderListView.setCellFactory(param -> new ListCell<>() {
+        OrderDatabase orderDatabase = new OrderDatabase();
+        orders.addAll(orderDatabase.getOrders());
+
+        productColumn.setCellValueFactory(new PropertyValueFactory<>("product"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        totalPriceColumn.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        actionColumn.setCellFactory(param -> new TableCell<>() {
+            private final Button payButton = new Button("Đã thanh toán");
+            private final Button cancelButton = new Button("Hủy đơn");
+
+            {
+                payButton.setOnAction(event -> {
+                    Order order = getTableView().getItems().get(getIndex());
+                    if (order.getStatus().equals("Chờ thanh toán")) {
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bạn có chắc chắn muốn chuyển trạng thái đơn hàng thành Đã thanh toán?", ButtonType.OK, ButtonType.CANCEL);
+                        alert.showAndWait().ifPresent(response -> {
+                            if (response == ButtonType.OK) {
+                                order.setStatus("Đã thanh toán");
+                                orderTable.refresh();
+                            }
+                        });
+                    }
+                });
+
+                cancelButton.setOnAction(event -> {
+                    Order order = getTableView().getItems().get(getIndex());
+                    if (order.getStatus().equals("Chờ thanh toán")) {
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bạn có chắc chắn muốn chuyển trạng thái đơn hàng thành Hủy đơn?", ButtonType.OK, ButtonType.CANCEL);
+                        alert.showAndWait().ifPresent(response -> {
+                            if (response == ButtonType.OK) {
+                                order.setStatus("Hủy đơn");
+                                orderTable.refresh();
+                            }
+                        });
+                    }
+                });
+            }
+
             @Override
-            protected void updateItem(Order order, boolean empty) {
-                super.updateItem(order, empty);
-                if (empty || order == null) { //
-                    setText(null);
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
                     setGraphic(null);
                 } else {
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("OrderCell.fxml"));
-                        Parent root = loader.load();
-                        OrderCellController controller = loader.getController();
-                        controller.setOrder(order);
-                        setGraphic(root);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    HBox hBox = new HBox(payButton, cancelButton);
+                    setGraphic(hBox);
                 }
             }
         });
+
+        orderTable.setItems(orders);
     }
 
-    public static void main(String[] args) {
-        Application.launch(OrderApp.class, args);
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
+
+    public ObservableList<Order> getAllOrders() {
+        return orders;
     }
 }

@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demomion.OrderListController" prefWidth="800" prefHeight="600">
-    <ListView fx:id="orderListView" />
-</VBox>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demomion.OrderListController">
+    <center>
+        <TableView fx:id="orderTable">
+            <columns>
+                <TableColumn fx:id="productColumn" text="Sản phẩm" />
+                <TableColumn fx:id="quantityColumn" text="Số lượng" />
+                <TableColumn fx:id="totalPriceColumn" text="Tổng tiền" />
+                <TableColumn fx:id="statusColumn" text="Trạng thái" />
+                <TableColumn fx:id="actionColumn" text="Hành động" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

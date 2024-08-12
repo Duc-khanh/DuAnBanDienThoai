@@ -1,36 +1,55 @@
 package com.example.demomion;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-
 public class Order {
-    private final SimpleStringProperty productInfo;
-    private final SimpleIntegerProperty quantity;
-    private final SimpleDoubleProperty totalPrice;
-    private String status;
+    private String customer;
+    private String product;
+    private int quantity;
+    private double totalPrice;
+    private String status; // "Chờ thanh toán", "Đã thanh toán", "Hủy đơn"
 
-    public Order(String productInfo, int quantity, double totalPrice, String chờThanhToán) {
-        this.productInfo = new SimpleStringProperty(productInfo);
-        this.quantity = new SimpleIntegerProperty(quantity);
-        this.totalPrice = new SimpleDoubleProperty(totalPrice);
-        this.status = "Chờ thanh toán";
+    // Constructor, getters, and setters
+    public Order(String customer, String product, int quantity, String status , double totalPrice) {
+        this.customer = customer;
+        this.product = product;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
+        this.status = status;
     }
 
-    public String getProductInfo() {
-        return productInfo.get();
+    public String getCustomer() {
+        return customer;
+    }
+
+    public String getProduct() {
+        return product;
     }
 
     public int getQuantity() {
-        return quantity.get();
+        return quantity;
     }
 
     public double getTotalPrice() {
-        return totalPrice.get();
+        return totalPrice;
     }
 
     public String getStatus() {
         return status;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public void setStatus(String status) {

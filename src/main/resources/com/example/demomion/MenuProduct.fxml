@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -27,7 +28,10 @@
                 <TableColumn fx:id="imageColumn" prefWidth="174.66662216186523" text="Image" />
                 <TableColumn fx:id="nameColumn" prefWidth="213.33326721191406" text="Tên sản phẩm" />
                 <TableColumn fx:id="priceColumn" minWidth="0.0" prefWidth="125.99996948242188" text="Giá" />
-                <TableColumn fx:id="quantityColumn" minWidth="0.0" prefWidth="108.0" text="Số Lượng" />
+                <TableColumn fx:id="quantityColumn" minWidth="0.0" prefWidth="108.0" text="Số Lượng">
+               <graphic>
+                  <Spinner />
+               </graphic></TableColumn>
                 <TableColumn fx:id="actionColumn" minWidth="0.0" prefWidth="218.66668701171875" text="Actions" />
             </columns>
         </TableView>

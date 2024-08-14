@@ -3,3 +3,4 @@ Samsung Galaxy S24 Plus 5G 256GB,16000.0,122,file:/A:/Unit3/DuAnBanDienThoai/src
 Xiaomi POCO X6 5G 12GB-256GB,24000.0,123,file:/A:/Unit3/DuAnBanDienThoai/src/main/resources/Image/In4SP/Xiaomi%20POCO%20X6%205G%2012GB-256GB/00909923_poco_x6_blue_5e570f66db.png
 Samsung Galaxy Z Fold6 5G 256GB,20000.0,123,file:/A:/Unit3/DuAnBanDienThoai/src/main/resources/Image/In4SP/Samsung%20Galaxy%20Z%20Fold6%205G%20256GB/samsung_galaxy_z_fold6_gray_2_ec3e1cf820.png
 Samsung Galaxy Z Fold6 5G 256GB,20000.0,123,file:/A:/Unit3/DuAnBanDienThoai/src/main/resources/Image/In4SP/Samsung%20Galaxy%20Z%20Fold6%205G%20256GB/samsung_galaxy_z_fold6_gray_2_ec3e1cf820.png
+test,1200.0,12,file:/A:/Unit3/DuAnBanDienThoai/src/main/resources/Image/In4SP/Xiaomi%20POCO%20X6%205G%2012GB-256GB/00909923_poco_x6_blue_5e570f66db.png

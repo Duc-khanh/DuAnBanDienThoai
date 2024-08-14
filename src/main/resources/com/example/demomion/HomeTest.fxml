@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demomion.HomeController">
+   <children>
+      <VBox layoutX="2.0" layoutY="14.0" prefHeight="25.0" prefWidth="1074.0" style="-fx-background-color: red;">
+         <children>
+            <MenuBar prefHeight="25.0" prefWidth="1000.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Trang chủ" />
+                  <Menu mnemonicParsing="false" text="Sản phẩm">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="SamSung" />
+                        <MenuItem mnemonicParsing="false" text="Xiaomi" />
+                        <MenuItem mnemonicParsing="false" text="Iphone" />
+                     </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Khách hàng">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Thông tin khách hàng" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Hóa đơn">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Đã thanh toán" />
+                        <MenuItem mnemonicParsing="false" text="Chưa thanh toán" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Tài khoản">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Thông tin tài khoản" />
+                        <MenuItem mnemonicParsing="false" text="Đăng xuất" />
+                     </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+      <VBox layoutX="2.0" layoutY="39.0" prefHeight="621.0" prefWidth="1074.0" style="-fx-background-color: blue;" />
+   </children>
+</AnchorPane>

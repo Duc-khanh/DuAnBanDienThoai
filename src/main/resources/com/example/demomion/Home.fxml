@@ -54,7 +54,6 @@
                 </font>
             </Button>
 
-            <!-- Khoảng trống đẩy nút Đăng xuất xuống -->
             <Region VBox.vgrow="ALWAYS" />
 
             <!-- Nút Đăng xuất -->

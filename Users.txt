@@ -1,12 +1,6 @@
-PhamThom,Vy12092001,0867536601,Vykid9@gmail.com
-DucKhanh01,123456789,0123456789,Khanh@gmail.com
-DucKhanh01,123456789,1234567888,vykid0@gmail.com
-<<<<<<< HEAD
-TuanMinh,123456789,0123456789,Minh@gmail.com
-PhamThom,123456789,0867536601,vykiad@gmail.com
-=======
+
 DucKhanh01,123456789,1234567888,vykid0@gmail.com
 Khanh1234,123456789,0856015345,nguyenkhanh@gmail.com
 Khanh1233,12345678,1234567890,Khanhnguyen@gmai.com
 khanh1234,12345678,1234567890,nguyenkhanh@gmai.com
->>>>>>> 3ef413af0fb4b169f6c4090148f496bbe9eec45b
+
